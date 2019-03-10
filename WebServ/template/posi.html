@@ -5,64 +5,78 @@
     <title>Position</title>
 </head>
 <body>
-    <!--获取股票持仓-->
-    {% if stock %}
+    <!--获取蜜獾基金仿真股票持仓-->
+    {% if ratel_sim_posi_stock %}
         <table border="1">
             <thead>
-                <th colspan="11">股票持仓</th>
+                <th colspan="12">蜜獾基金股票持仓</th>
             </thead>
             <thead>
                 <th>序号</th>
                 <th>股票代码</th>
                 <th>股票名称</th>
-                <th>交易所</th>
-                <th>所属板块</th>
-                <th>所属行业</th>
-                <th>持仓量</th>
+                <th>买卖类型</th>
+                <th>持仓</th>
                 <th>成本价</th>
                 <th>现价</th>
                 <th>市值</th>
                 <th>盈亏</th>
+                <th>行业</th>
+                <th>所属板块</th>
+                <th>交易所</th>
             </thead>
-        {% for i in range(len(stock)) %}
+        {% for i in range(len(ratel_sim_posi_stock)) %}
             <tr>
                 <td>{{ i+1 }}</td>
-                <td>{{ stock[i][2] }}</td>
-                <td>{{ stock[i][3] }}</td>
-                <td>{{ stock[i][4] }}</td>
-                <td>{{ stock[i][5] }}</td>
-                <td>{{ stock[i][6] }}</td>
-                <td>{{ stock[i][8] }}</td>
-                <td>{{ stock[i][9] }}</td>
-                <td>{{ stock[i][10] }}</td>
-                <td>{{ stock[i][11] }}</td>
-                <td>{{ stock[i][12] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][0] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][1] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][2] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][3] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][4] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][5] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][6] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][7] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][8] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][9] }}</td>
+                <td>{{ ratel_sim_posi_stock[i][10] }}</td>
             </tr>
         {% end %}
         </table>
     {% end %}
-    <!--获取期货持仓-->
-    {% if future %}
-    <table>
-        <tr>
-            <th colspan="9">期货持仓</th>
-        </tr>
-        <tr>
-            <th>序号</th>
-            <th>期货代码</th>
-            <th>期货名称</th>
-            <th>交易所</th>
-            <th>所属板块</th>
-            <th>持仓量</th>
-            <th>成本价</th>
-            <th>现价</th>
-            <th>市值</th>
-            <th>盈亏</th>
-        </tr>
-    </table>
+    <br/><br/>
+    <!--获取蜜獾基金仿真股票交易记录-->
+    {% if ratel_sim_rcd_stock %}
+        <table border="1">
+            <thead>
+                <th colspan="10">蜜獾基金股票交易记录</th>
+            </thead>
+            <thead>
+                <th>序号</th>
+                <th>股票代码</th>
+                <th>股票名称</th>
+                <th>买卖类型</th>
+                <th>交易价格</th>
+                <th>成交量</th>
+                <th>金额</th>
+                <th>手续费</th>
+                <th>税费</th>
+                <th>交易时间</th>
+            </thead>
+        {% for i in range(len(ratel_sim_rcd_stock)) %}
+            <tr>
+                <td>{{ i+1 }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][0] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][1] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][2] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][3] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][4] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][5] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][6] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][7] }}</td>
+                <td>{{ ratel_sim_rcd_stock[i][8] }}</td>
+            </tr>
+        {% end %}
+        </table>
     {% end %}
-    <form>
-        <input type="button" value="click me" onclick="alert(hi)"/>
-    </form>
 </body>
 </html>

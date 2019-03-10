@@ -59,15 +59,11 @@ class PosiHdl(tornado.web.RequestHandler):
         self.db = FinDB()
 
     def get(self):
-        sqlstr="select * from financial.position where posi_type='股票';"
-        stocks = self.db.query(sqlstr)
-        sqlstr = "select * from position where posi_type='期货';"
-        futures = self.db.query(sqlstr)
-        sqlstr = "select * from position where posi_type='基金';"
-        funds = self.db.query(sqlstr)
-        sqlstr = "select * from position where posi_type='期权';"
-        options = self.db.query(sqlstr)
-        self.render("posi.html", stock=stocks, future=futures, fund=funds, options=options)
+        sqlstr="select * from financial.ratel_sim_posi_stock_vi;"
+        ratel_sim_posi_stock = self.db.query(sqlstr)
+        sqlstr="select * from financial.ratel_sim_rcd_stock_vi;"
+        ratel_sim_rcd_stock = self.db.query(sqlstr)
+        self.render("posi.html", ratel_sim_posi_stock=ratel_sim_posi_stock, ratel_sim_rcd_stock=ratel_sim_rcd_stock)
 
 def make_app():
     current_path = os.path.dirname(__file__)
