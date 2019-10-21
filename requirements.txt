@@ -19,4 +19,4 @@ soupsieve==1.8
 SQLAlchemy==1.2.18
 tornado==5.1.1
 tushare==1.2.21
-urllib3==1.24.1
+urllib3==1.24.2
